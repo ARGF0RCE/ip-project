@@ -11,9 +11,10 @@ from sklearn.preprocessing import LabelEncoder
 def read_dicom_file(file):
     dicom = pydicom.dcmread(file)
     img = dicom.pixel_array
-    img = np.stack((img,) * 3, axis=-1)
     img = Image.fromarray(img)
-    return img.resize((512, 512))
+    img = img.resize((512, 512))
+    img = np.stack((img,) * 3, axis=-1)
+    return img.astype(np.float32)
 
 
 # Create encoders
