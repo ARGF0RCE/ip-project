@@ -44,7 +44,7 @@ if uploaded_file:
     st.image(img, caption="Uploaded Image", use_column_width=True)
 
     # Model loading
-    model = tf.keras.models.load_model('path/to/your/saved/model')
+    model = tf.keras.models.load_model('./multi_input_multi_output_model/')
 
     # Inputs
     breast_density = st.selectbox("Breast Density", [1, 2, 3, 4])
